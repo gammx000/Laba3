@@ -25,7 +25,7 @@ int main(int argc, char* argv[]) {
         Node* tail = NULL;
         Node* p;
 
-        readFromConsole(head, tail);
+        readFromConsole(&head, &tail);
         p = head;
         printf("Очередь: ");
         while (p != NULL) {
@@ -34,7 +34,47 @@ int main(int argc, char* argv[]) {
         }
         printf("\n");
 
-        freeQueue(head, tail);
+        writeToFile("output1.txt", &head, &tail);
+
+        selectionSort(&head, &tail);
+
+        p = head;
+        printf("Очередь: ");
+        while (p != NULL) {
+            printf("%d ", p->value);
+            p = p->next;
+        }
+        printf("\n");
+
+        writeToFile("output2_sort.txt", &head, &tail);
+
+        Node* head2 = NULL;
+        Node* tail2 = NULL;
+
+        readFromConsole(&head2, &tail2);
+        p = head2;
+        
+        printf("Очередь 2: ");
+        while (p != NULL) {
+            printf("%d ", p->value);
+            p = p->next;
+        }
+        printf("\n");
+
+        quickSort(&head2, &tail2);
+
+        p = head2;
+        printf("Очередь 2: ");
+        while (p != NULL) {
+            printf("%d ", p->value);
+            p = p->next;
+        }
+        printf("\n");
+
+        writeToFile("output3_sort.txt", &head2, &tail2);
+
+        freeQueue(&head, &tail);
+        freeQueue(&head2, &tail2);
     }
     else {
         printf("Некорректные аргументы\n");
