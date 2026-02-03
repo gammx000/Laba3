@@ -3,6 +3,8 @@
 #include "queue.h"
 
 int* readFromFile(const char* filename, int* n);
-void readFromConsole(Node* head, Node* tail);
+void readFromFileQueue(const char* filename, Node** head, Node** tail);
+void readFromConsole(Node** head, Node** tail);
+void writeToFile(const char* filename, Node** head, Node** tail);
 
 #endif

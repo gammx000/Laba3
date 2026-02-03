@@ -23,14 +23,39 @@ int* readFromFile(const char* filename, int* n) {
     return arr;
 }
 
-void readFromConsole(Node* head, Node* tail) {
+void readFromFileQueue(const char* filename, Node** head, Node** tail) {
+    FILE* f = fopen(filename, "r");
+
+    int a;
+    while(fscanf(f, "%d", &a) == 1) {
+        push(head, tail, a);
+        // if (getchar() == '\n') {
+        //     break;
+        // }
+    }
+
+    fclose(f);
+}
+
+void readFromConsole(Node** head, Node** tail) {
     printf("Числа: ");
     int a;
     while(scanf("%d", &a) == 1) {
         push(head, tail, a);
-        printf("readFromConsole: head = %p\ntail = %p\n\n", head, tail);
         if (getchar() == '\n') {
             break;
         }
     }
+}
+
+void writeToFile(const char* filename, Node** head, Node** tail) {
+    FILE* f = fopen(filename, "w");
+
+    Node* p = *head;
+    while (p != NULL) {
+        fprintf(f, "%d ", p->value);
+        p = p->next;
+    }
+
+    fclose(f);
 }

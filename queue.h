@@ -6,8 +6,8 @@ typedef struct Node {
     struct Node* next;
 } Node;
 
-void push(Node* head, Node* tail, int a);
-int pop(Node* head, Node* tail);
-void freeQueue(Node* head, Node* tail);
+void push(Node** head, Node** tail, int a);
+int pop(Node** head, Node** tail);
+void freeQueue(Node** head, Node** tail);
 
 #endif

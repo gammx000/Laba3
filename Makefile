@@ -1,5 +1,5 @@
 all:
-	gcc main.c io.c queue.c sort.c -o main
+	gcc main.c io.c queue.c sort.c -o main.exe
 
 clean:
-	rm -rf main
+	del main.exe

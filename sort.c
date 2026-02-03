@@ -8,7 +8,7 @@ void selectionSort(Node** head, Node** tail) {
     }
 
     if ((*head)->next == NULL) {
-        return NULL;
+        return;
     }
 
     Node* min;
