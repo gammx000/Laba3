@@ -29,16 +29,13 @@ void readFromFileQueue(const char* filename, Node** head, Node** tail) {
     int a;
     while(fscanf(f, "%d", &a) == 1) {
         push(head, tail, a);
-        // if (getchar() == '\n') {
-        //     break;
-        // }
     }
 
     fclose(f);
 }
 
 void readFromConsole(Node** head, Node** tail) {
-    printf("–ß–∏—Å–ª–∞: ");
+    printf("◊ËÒÎ‡: ");
     int a;
     while(scanf("%d", &a) == 1) {
         push(head, tail, a);
@@ -46,6 +43,8 @@ void readFromConsole(Node** head, Node** tail) {
             break;
         }
     }
+    char c;
+    while ((c = getchar()) != '\n' && c != EOF);
 }
 
 void writeToFile(const char* filename, Node** head, Node** tail) {
