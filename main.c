@@ -16,10 +16,12 @@ void test_data(const char* filename, const char* output1,
 
     writeToFile(output1, &head, &tail);
 
+    
+
     clock_t t1 = clock();
     selectionSort(&head, &tail);
     clock_t t2 = clock();
-    printf("Прямой выбор %d: %lf\n", elems, (double)(t2-t1)/CLOCKS_PER_SEC);
+    printf("Прямой выбор %d: %40.lf\n", elems, (double)(t2-t1)/CLOCKS_PER_SEC);
 
     writeToFile(output2, &head, &tail);
 
